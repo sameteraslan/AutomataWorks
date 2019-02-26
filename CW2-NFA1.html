@@ -57,8 +57,6 @@ Input Number = <input id=final type=text value=0
 
 <script>
 "use strict";
-var a = [];
-var b = [];
 function union(a, b) { //set operation using strings
     let s = a
     for (let x of b) if (!a.includes(x)) s += x
@@ -77,8 +75,8 @@ function deltaNFA(q, c) { // (1|0)*00
 }
 function deltaDFA(q, c) { // (1|0)*00
     if (q=='a' && c=='0') return 'ab'
-    if ((q=='a' || q=='ab' || q=='abc') && c=='1') return 'a'
-    if ((q=='ab' || q=='abc') && c=='0') return 'abc'
+    if ((q=='a' || q=='b' || q=='c') && c=='1') return 'a'
+    if ((q=='b' || q=='c') && c=='0') return 'c'
     return '';  //default -- no transition
 }
 function acceptNFA(w, F='c', Q='a') {
