@@ -74,7 +74,7 @@ function deltaNFA(q, c) { // (1|0)*00
     return '';  //default -- no transition
 }
 function deltaDFA(q, c) { // (1|0)*00
-    if (q=='a' && c=='0') return 'ab'
+    if (q=='a' && c=='0') return 'b'
     if ((q=='a' || q=='b' || q=='c') && c=='1') return 'a'
     if ((q=='b' || q=='c') && c=='0') return 'c'
     return '';  //default -- no transition
@@ -128,7 +128,7 @@ function test() {
 }
 
     title.innerText = document.title;
-    sample.innerText = deltaNFA + '\n' + acceptNFA + '\n' + deltaDFA + '\n' + acceptDFA;
+    sample.innerText = deltaNFA + '\n' + acceptNFA + '\n' + deltaDFA + '\n' + acceptDFA + '\n' + test;
     test();
 </script>
 </body>
