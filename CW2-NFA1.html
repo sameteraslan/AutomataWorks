@@ -97,16 +97,6 @@ function acceptNFA(w, F='c', Q='a') {
     return intersect(Q, F).length > 0
 }
 
-/*
-   
-	let e = /00$/
-    for (let n=1; n<final.value; n++) {
-        let w = n.toString(2)  // to binary
-        if (e.test(w)) b.push(n);
-    }
-    console.log(b)
-    return "Result NFA: [" + b + "]"*/
-
 function acceptDFA(w, F='c', Q='a') {
     //w: input String
     //F: final state(s)
@@ -125,17 +115,18 @@ function acceptDFA(w, F='c', Q='a') {
 function test() {
     let e = /00$/
     let s = ""
-    let a = [], b = [];
+    let a = [], b = [], c = [];
     for (let n=1; n<final.value; n++) {
         let w = n.toString(2)  // to binary
         if (e.test(w)) a.push(n);
-        s += acceptNFA(w);
+        if (acceptDFA(w)) b.push(n);
+        if (acceptNFA(w)) c.push(n);
+
     }
-    console.log(a)
-    return "Result DFA: [" + a + "]"
-    
-    let t = acceptDFA(final.value);
-    console.log(s); console.log(t); out.innerHTML = s + '<br>' + t
+    console.log("Result Regex: [" + a + "]")
+    console.log("Result DFA: [" + b + "]")
+    console.log("Result NFA: [" + c + "]")
+    out.innerHTML = "Result Regex: [" + a + "]" + '<br>' + "Result DFA: [" + b + "]" + '<br>' + "Result NFA: [" + c + "]"
 }
 
     title.innerText = document.title;
