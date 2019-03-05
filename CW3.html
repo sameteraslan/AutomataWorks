@@ -35,7 +35,7 @@ Pattern <input type="text" id="pat" onkeyup="checkRE()"> 
 
 <script>
 "use strict";
-const ptrn = ["((https://)|(http://))[a-z]+.[a-z0-9]+.[\\Wa-zA-Z0-9/_]+", "[a-z0-9.]+@[a-z]+(.[a-z]+)+","[a-z]", "[0-9]{4}", "d[iuü][km]", "x[a-z]"];
+const ptrn = ["((https://)|(http://))[a-z]+.[a-z0-9]+.[\\S]+", "[a-z0-9.]+@[a-z]+(.[a-z]+)+","[a-z]", "[0-9]{4}", "d[iuü][km]", "x[a-z]"];
 const word = 
     ["Follow me https://www.github.com/sameteraslan", "My email address is sameteraslan@gmail.com, you can contact me", "Bir iki üç dört beş altı ", "Bugün 23/6/2018 saat 14",
      "Geldim gördüm buldum...", "Excellent expression tax "];
