@@ -6,8 +6,8 @@
     <title>Regular Expressions </title>
   <style>
   /* pre { border: solid 1px } */
-    #pat { width: 90px; }
-    #inp { width: 250px; }
+    #pat { width: 310px; }
+    #inp { width: 450px; }
     .found { color: #F60; }
   </style>
 </head>
@@ -18,11 +18,11 @@
 <p>
 Pattern <input type="text" id="pat" onkeyup="checkRE()">  
 <select id="menu" onchange="setValues()">
-<option>Letter</option><option>Number</option><option>Suffix</option><option>x+letter
+<option>Website</option><option>E-mail</option><option>Letter</option><option>Number</option><option>Suffix</option><option>x+letter
 </option></select> 
 </p>
 <p>
-Input <input type="text" id="inp" onkeyup="checkRE()">
+<textarea rows="4" cols="250" id="inp" onkeyup="checkRE()"> </textarea>
 </p>
 <p id="out">B<span class="found">i</span><span class="found">r</span> <span class="found">i</span><span class="found">k</span><span class="found">i</span> üç <span class="found">d</span>ö<span class="found">r</span><span class="found">t</span> <span class="found">b</span><span class="found">e</span>ş <span class="found">a</span><span class="found">l</span><span class="found">t</span>ı </p>
 
@@ -35,9 +35,9 @@ Input <input type="text" id="inp" onkeyup="checkRE()">
 
 <script>
 "use strict";
-const ptrn = ["[a-z]", "[0-9]{4}", "d[iuü][km]", "x[a-z]"];
+const ptrn = ["((https://)|(http://))[a-z]+.[a-z0-9]+.[\\Wa-zA-Z0-9/_]+", "[a-z0-9.]+@[a-z]+(.[a-z]+)+","[a-z]", "[0-9]{4}", "d[iuü][km]", "x[a-z]"];
 const word = 
-    ["Bir iki üç dört beş altı ", "Bugün 23/6/2018 saat 14",
+    ["Follow me https://www.github.com/sameteraslan", "My email address is sameteraslan@gmail.com, you can contact me", "Bir iki üç dört beş altı ", "Bugün 23/6/2018 saat 14",
      "Geldim gördüm buldum...", "Excellent expression tax "];
 function setValues() {
     pat.value = ptrn[menu.selectedIndex];
