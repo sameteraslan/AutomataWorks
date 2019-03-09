@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://sameteraslan.github.io/AutomataWorks/CW3 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>Find Strings and Arrays</title>
+  <style>
+  /* pre { border: solid 1px } */
+    #inp { width: 450px; }
+    .foundstring { color:blue; }
+    .foundarray { color: red; }
+  </style>
+</head>
+
+<body>
+<h2 id="title">Find Strings and Arrays</h2>
+
+<p>
+<textarea rows="10" cols="400" id="inp" onkeyup="checkRE();"></textarea>
+</p>
+<p id="out"></p>
+<p id="temp"></p>
+
+<hr>
+<b>Sample code</b>
+<pre id="sample"></pre>
+<hr>
+
+<script>
+"use strict";
+const patternString = "Regex will come soon";
+const patternArray = "Regex will come soon";
+var values = "";
+
+function checkRE() {
+    if (inp.value) {
+        let expArray = new RegExp(patternArray, 'g');
+        let strArray = "<span class='foundarray'>$&</span>";
+        values = inp.value.replace(expArray, strArray).split("\n").join("<br>");
+        let expString = new RegExp(patternString, 'g');
+        let strString = "<span class='foundstring'>$&</span>";
+        values = values.replace(expString, strString);
+        out.innerHTML = values;
+    }
+}
+    sample.innerText = checkRE.toString();
+    title.innerText = document.title;
+</script>
+</body>
+</html>
