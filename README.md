@@ -3,3 +3,5 @@
 2. [CW2 - NFA](https://sameteraslan.github.io/AutomataWorks/CW2-NFA1)
 
 3. [CW3 - RegExp](https://sameteraslan.github.io/AutomataWorks/CW3)
+
+4. [CW3 - RegExp](https://sameteraslan.github.io/AutomataWorks/HW1Regex)
