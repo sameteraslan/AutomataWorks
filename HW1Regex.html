@@ -6,9 +6,10 @@
     <title>Find Strings and Arrays</title>
   <style>
   /* pre { border: solid 1px } */
-    #inp { width: 450px; }
-    .foundstring { color:blue; }
-    .foundarray { color: red; }
+    #inp { width: auto; max-width: 600px; min-width: 450px;}
+    .foundarray { color: red !important; }
+    .foundstring { color: blue; }
+    span span[class=foundstring] {color: red}
   </style>
 </head>
 
@@ -16,30 +17,33 @@
 <h2 id="title">Find Strings and Arrays</h2>
 
 <p>
-<textarea rows="10" cols="400" id="inp" onkeyup="checkRE();"></textarea>
+<textarea rows="10" cols="600" id="inp" onkeyup="checkRE();"></textarea>
 </p>
 <p id="out"></p>
-<p id="temp"></p>
 
-<hr>
-<b>Sample code</b>
+<br>
+<fieldset style="width:450px">
+<legend style="color:green;font-size:larger;">Sample Code</legend>
 <pre id="sample"></pre>
-<hr>
+</fieldset>
+
 
 <script>
 "use strict";
-const patternString = "Regex will come soon";
-const patternArray = "Regex will come soon";
+// Info: https://stackoverflow.com/questions/18057962/regex-pattern-including-all-special-characters
+// More: abdulsamet.eraslan@stu.fsm.edu.tr
+const patternString = /("[!#-&\(-_a-~ ]*"{1})|('[!#-&\(-_a-~ ]*'{1})/;
+const patternArray = /\[[\S ]*\]/;
 var values = "";
 
 function checkRE() {
     if (inp.value) {
         let expArray = new RegExp(patternArray, 'g');
-        let strArray = "<span class='foundarray'>$&</span>";
-        values = inp.value.replace(expArray, strArray).split("\n").join("<br>");
+        let strArray = "<span class=foundarray>$&</span>";
+        values = inp.value.replace(expArray, strArray);
         let expString = new RegExp(patternString, 'g');
-        let strString = "<span class='foundstring'>$&</span>";
-        values = values.replace(expString, strString);
+        let strString = "<span class=foundstring>$&</span>";
+        values = values.replace(expString, strString).split("\n").join("<br>");
         out.innerHTML = values;
     }
 }
