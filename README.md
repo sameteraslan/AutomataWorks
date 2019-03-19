@@ -4,4 +4,6 @@
 
 3. [CW3 - RegExp](https://sameteraslan.github.io/AutomataWorks/CW3)
 
-4. [HW1 - Regular Expressions](https://sameteraslan.github.io/AutomataWorks/HW1Regex)
+4. [CW4 - Palindrome](https://sameteraslan.github.io/AutomataWorks/CW4)
+
+5. [HW1 - Regular Expressions](https://sameteraslan.github.io/AutomataWorks/HW1Regex)
