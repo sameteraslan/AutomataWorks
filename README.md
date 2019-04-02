@@ -6,4 +6,6 @@
 
 4. [CW4 - Palindrome](https://sameteraslan.github.io/AutomataWorks/CW4)
 
-5. [HW1 - Regular Expressions](https://sameteraslan.github.io/AutomataWorks/HW1Regex)
+5. [CW5](https://sameteraslan.github.io/AutomataWorks/CW5/CW5)
+
+1. [HW1 - Regular Expressions](https://sameteraslan.github.io/AutomataWorks/HW1Regex)
