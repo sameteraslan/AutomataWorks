@@ -92,10 +92,12 @@ function term() {
 }
 
 function i(key, value) {
-    // Burada gelen fonksiyonun Math sınıfında
-    // olup olmadığı kontrolunu yaptım.
-    // Eğer geçerli fonksiyonsa hesaplama yaptım -->> i(sin, 45) -> Math.sin(45) gibi..
-    // Bu kısmı şimdilik paylaşmayacağım.
+    console.log(key + ":" + value);
+    let F = Object.getOwnPropertyNames(Math)
+    let a = F.filter(k => Math[k].length == 1 && k == key)
+    if (a.length == 1)
+        return [eval("Math." + a[0] + "(" + value + ")"), value];
+    return -1;    
 }
 function factor() {
     let b = tok.value;
