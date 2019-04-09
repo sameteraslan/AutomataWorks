@@ -51,6 +51,7 @@ function accept(w, init='E') {
     for (let as of S) {
         if (as != 'Y' && as != 'X') {
             xc = false
+            break;
         }
     }
     let a = (i == m && (S.length == 0 || xc))
@@ -69,7 +70,7 @@ function test() {
 
 <p>Push-down automaton for unary addition</p>
 
-w = <input id=input type=text value="(n-i(n+n))/i(n*n)"
+w = <input id=input type=text value="(n+i(n+i(n*n)))/i(n/(n+n))"
   onChange="test()"> 
 
 <pre id=out></pre>
