@@ -8,13 +8,23 @@
 <script>
 "use strict";
 function delta(c, p) { // Unary addition
-    if (c=='a' && p=='S') return "aSa";
-    if (c=='+' && p=='S') return "+aEa";
-    if (c=='a' && p=='E') return "aEa";
-    if (c=='=' && p=='E') return "=";
-    return '';  //default -- no transition
+    if (p=='E') return "TX";
+    if (c=='+' && p=='X') return "+TX";
+    if (c=='-' && p=='X') return "-TX";
+    if (p=='X') return "";
+    if (p=='T') return "FY";
+
+    
+    if (c=='*' && p=='Y') return "*FY";
+    if (c=='/' && p=='Y') return "/FY";
+    if (p=='Y') return "";
+    if (c=='n' && p=='F') return "n";
+    if (c=='(' && p=='F') return "(E)";
+    if (c=='i' && p=='F') return "i(E)";
+
+    return null;  //default -- no transition
 }
-function accept(w, init='S') {
+function accept(w, init='E') {
     //w: input String
     //init: start symbol
     //S: stack as Array
@@ -26,7 +36,7 @@ function accept(w, init='S') {
             i++; txt += "\nmatch "+c
         } else { //find a valid transition
             let d = delta(c, p)
-            if (d == '') break
+            if (d == null) break
             let A = d.split('').reverse()
             for (let x of A) S.push(x)
             txt += "\npush "+d
@@ -37,7 +47,13 @@ function accept(w, init='S') {
     }
     input.selectionStart = i
     input.selectionEnd = i+1
-    let a = (i == m && S.length == 0)
+    let xc = true;
+    for (let as in S) {
+        if (as != 'Y' && as != 'X') {
+            xc = false
+        }
+    }
+    let a = (i == m && (S.length == 0 || !xc))
     return txt+'  '+(a? "Accept" : "Reject")
 }
 function test() {
@@ -53,7 +69,7 @@ function test() {
 
 <p>Push-down automaton for unary addition</p>
 
-w = <input id=input type=text value="aa+aa=aaaa"
+w = <input id=input type=text value="(n-i(n+n))/i(n*n)"
   onChange="test()"> 
 
 <pre id=out></pre>
@@ -69,8 +85,11 @@ w = <input id=input type=text value="aa+aa=aaaa"
     }
 </style>
 <div id=cfg>
-  S → aSa | +aEa <br>
-  E → aEa | =
+  E -> TX <br><br>
+  X -> ε | +TX | -TX <br><br>
+  T -> FY<br><br>
+  Y -> ε | *FY | /FY<br><br>
+  F -> n | (E) | i(E)<br>
 </div>
 
 <pre id=sample></pre>
