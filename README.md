@@ -6,7 +6,9 @@
 
 4. [CW4 - Palindrome](https://sameteraslan.github.io/AutomataWorks/CW4/CW4)
 
-5. [CW5](https://sameteraslan.github.io/AutomataWorks/CW5/CW5)
+5. [CW5 - Expressions](https://sameteraslan.github.io/AutomataWorks/CW5/CW5)
+
+6. [CW6 - PDA](https://sameteraslan.github.io/AutomataWorks/CW6/CW6)
 
 1. [HW1 - Regular Expressions](https://sameteraslan.github.io/AutomataWorks/HW1/HW1Regex)
 
