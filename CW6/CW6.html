@@ -48,12 +48,12 @@ function accept(w, init='E') {
     input.selectionStart = i
     input.selectionEnd = i+1
     let xc = true;
-    for (let as in S) {
+    for (let as of S) {
         if (as != 'Y' && as != 'X') {
             xc = false
         }
     }
-    let a = (i == m && (S.length == 0 || !xc))
+    let a = (i == m && (S.length == 0 || xc))
     return txt+'  '+(a? "Accept" : "Reject")
 }
 function test() {
