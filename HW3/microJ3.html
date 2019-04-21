@@ -37,26 +37,16 @@
 <p>
 <textarea id=inpx rows=14>
    M(k){
-      var i, j;
+      var i = 5, j;
+      println 5;
+      println i;
       i = 1;
       j = i;
-      while(i <= k) {
-         j = i;
-         while(j > 0) { 
-      
-          print j;
-          j = j - 1;
-          }
-         println;
-      i = i + 1;
       }
-      }
-      
+    
       main() {
-      var a;
-      a = 9;
-      M(a);
-      }
+      M(9);
+   }
 </textarea>
 </p>
 <pre id=outx>

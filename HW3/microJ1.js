@@ -47,35 +47,29 @@ class Variable { //move to Expression
    fValue() { 
       return VM.getValue(this); 
    }
-   toString() { return this.met.vars[this.ind]; }
+   toString() { 
+      return this.met.vars[this.ind]; }
 }
 
 class Declaration {
-   constructor(vars) { this.vars = vars; }
+   constructor(vars, v = null) { this.vars = vars; }
    run() { }
    toString() { 
       return "var "+this.vars.join(', ');
    }
 }
-/*
-class WithValue {
-   constructor(vars, vals) {this.vars = vars;
-                           this.vals = vals;}
-   run() { return VM.setValue(this.vars, this.vals)}
-   toString() {
-      let s = "";
-      let counter = 0;
-      for (let i of vals) {
-         s += "var " + vars[counter++] + " " + i + ", ";
-      }
-      console.log(s);
-      return s;
-   }
-}
-*/
+
+
+
 class Assignment {
    constructor(v, e) { this.left = v; this.right = e; }
    run() { VM.setValue(this.left, this.right.fValue()); }
+   toString() { return this.left+" = "+this.right; }
+}
+
+class WithValue {
+   constructor(v, e) { this.left = v; this.right = e; }
+   run() { VM.setValue(this.left, this.right); }
    toString() { return this.left+" = "+this.right; }
 }
 
@@ -148,7 +142,7 @@ function identifier()  {
     met.vars.push(id); return id;
 }
 
-
+/*
 function identList() {
    let L = [];
    L.push(identifier());
@@ -157,11 +151,13 @@ function identList() {
    }
    return L;
 }
+*/
 
-/*
+
 function identList() {
     let L = [];
     L.push(withValue());
+
     while (tok == COMMA)  {
       match(COMMA); L.push(withValue());
     }
@@ -171,6 +167,7 @@ function identList() {
 function withValue() {
    let L = [];
    L.push(identifier());
+   let i = met.vars.length - 1;
    if (tok == ASSIGN) {
       match(ASSIGN);
       let e = expression();
@@ -178,7 +175,7 @@ function withValue() {
    }
    return L;
 }
-*/
+
 function declaration()  {
     let a = [];
     if (tok == VAR) {
