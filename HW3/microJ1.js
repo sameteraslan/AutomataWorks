@@ -170,7 +170,7 @@ function withValue() {
    let i = met.vars.length - 1;
    if (tok == ASSIGN) {
       match(ASSIGN);
-      let e = expression();
+      let e = tok.val;
       return new WithValue(L, e);
    }
    return L;
