@@ -17,3 +17,5 @@
 2. [HW2 - Expressions](https://sameteraslan.github.io/AutomataWorks/HW2/Expression)
      HW2 silindi
 3. [HW3 - Modifying MicroJ1](https://sameteraslan.github.io/AutomataWorks/HW3/microJ3)
+
+1. [Automata Project](https://sameteraslan.github.io/AutomataWorks/AutomataProject/index)
