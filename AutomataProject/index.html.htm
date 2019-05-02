@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  width: fit-content;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat", sans-serif
+  }
+
+  .w3-row-padding img {
+    margin-bottom: 12px
+  }
+
+  /* Set the width of the sidebar to 120px */
+  .w3-sidebar {
+    width: 120px;
+    background: #222;
+  }
+
+  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+  #main {
+    margin-left: 120px
+  }
+
+  /* Remove margins from "page content" on small screens */
+  @media only screen and (max-width: 600px) {
+    #main {
+      margin-left: 0
+    }
+  }
+
+
+
+
+
+/* Option Select*/
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+/* -------------------- Colors: Background */
+.slate   { background-color: #ddd; }
+.green   { background-color: #779126; }
+.blue    { background-color: #3b8ec2; }
+.yellow  { background-color: #eec111; }
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.slate select   { color: #000; }
+.green select   { color: #fff; }
+.blue select    { color: #fff; }
+.yellow select  { color: #000; }
+.black select   { color: #fff; }
+
+
+/* -------------------- Select Box Styles: danielneumann.com Method */
+/* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+#mainselection select {
+   border: 0;
+   color: #EEE;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 378px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+#mainselection {
+   overflow:hidden;
+   width:350px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+
+
+/* -------------------- Select Box Styles: stackoverflow.com Method */
+/* -------------------- Source: http://stackoverflow.com/a/5809186 */
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+
+
+
+/* Side by side images*/
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  align-content: center;
+
+  clear: both;
+  display: table;
+}
+</style>
+
+<body class="w3-black">
+
+  <!-- Icon Bar (Sidebar - hidden on small screens) -->
+  <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-home w3-xxlarge"></i>
+      <p>HOME</p>
+    </a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fa fa-user w3-xxlarge"></i>
+      <p>ABOUT</p>
+    </a>
+    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fa fa-eye w3-xxlarge"></i>
+      <p>PHOTOS</p>
+    </a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fa fa-envelope w3-xxlarge"></i>
+      <p>CONTACT</p>
+    </a>
+  </nav>
+
+  <!-- Navbar on small screens (Hidden on medium and large screens) -->
+  <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+      <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+      <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+      <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="w3-padding-large" id="main">
+    <!-- Header/Home -->
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+      <h1 class="w3-jumbo"><span class="w3-hide-small">NFA to DFA Conversion</span></h1>
+
+    </header>
+
+    <!-- About Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="FA">
+      <h2 class="w3-text-light-grey">Finite Automata (FA)</h2>
+      <hr style="width:200px" class="w3-opacity">
+      <p>Finite Automata(FA) is the simplest machine to recognize patterns.
+        <p>A finite automata consist of the following:</p>
+        <fieldset style="width:max-content;">
+          <p>{ Q, ∑, q, F, δ }</p>
+          <p>Q : Finite set of states.</p>
+          <p>∑ : set of Input Symbols.</p>
+          <p>q : Initial state.</p>
+          <p>F : set of Final States.</p>
+          <p>δ : Transition Function.</p>
+        </fieldset>
+
+      </p>
+    </div>
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="DFA">
+      <h2 class="w3-text-light-grey">Deterministic Finite Automata (DFA)</h2>
+      <hr style="width:200px" class="w3-opacity">
+      <p>In a DFA, for a particular input character, the machine goes to one state only.
+        A transition function is defined on every state for every input symbol.
+        Also in DFA null (or ε) move is not allowed, i.e.,
+        DFA cannot change state without any input character.
+        <p>For example, below DFA with ∑ = {0, 1} accepts all strings ending with 0.</p>
+        <img src="images/Finite_automata_introduction_1.jpg" alt="Introduction DFA-1">
+        <p>DFA consists of 5 tuples {Q, ∑, q, F, δ}.</p>
+        <fieldset style="width:max-content;">
+          <p>Q : set of all states.</p>
+          <p>∑ : set of input symbols. (Symbols which machine takes as input)</p>
+          <p>q : Initial state. ( Starting state of a machine )</p>
+          <p>F : set of final state.</p>
+          <p>δ : Transition Function, defined as δ : Q X ∑ --> Q.</p>
+        </fieldset>
+
+      </p>
+    </div>
+
+
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="NFA">
+      <h2 class="w3-text-light-grey">Nondeterministic Finite Automata (NFA)</h2>
+      <hr style="width:200px" class="w3-opacity">
+      <p>NFA is similar to DFA except following additional features:
+        <p>1. Null (or ε) move is allowed i.e., it can move forward without reading symbols.</p>
+        <p>2. Ability to transmit to any number of states for a particular input.</p>
+        However, these above features don’t add any power to NFA. If we compare both in terms of power,
+        both are equivalent.
+        Due to above additional features, NFA has a different transition function,
+        rest is same as DFA.
+        <p>δ: Transition Function</p>
+        <p>δ: Q X (∑ U ϵ ) --> 2 ^ Q.</p>
+      </p>
+    </div>
+  </div>
+
+
+  
+  <center>
+      <h2>NFA to DFA Conversion</h2>
+      <div class="styled-select blue semi-square">
+          <select>
+            <option style="color: #000">Example 1</option>
+            <option style="color: #000">Example 2</option>
+            <option style="color: #000">Example 3</option>
+          </select>
+        </div>
+
+      <br>
+      <div>
+          <table>
+              <tr>
+                  <th>
+                      <table>
+                          <tr>
+                              <th>ẟ</th>
+                              <th>0</th>
+                              <th>1</th>
+                          </tr>
+                          <tr>
+                              <th> >*a</th>
+                              <td>b</td>
+                              <td>X</td>
+                          </tr>
+                          <tr>
+                              <th>&emsp;b</th>
+                              <td>X</td>
+                              <td>{a,c}</td>
+                          </tr>
+                          <tr>
+                              <th> c</th>
+                              <td>X</td>
+                              <td>a</td>
+                          </tr>
+                      </table>
+                  </th>
+                  <th>&emsp;&emsp;&emsp;</th>
+                  <th>
+                      <table>
+                          <tr>
+                              <th>ẟ'</th>
+                              <th>0</th>
+                              <th>1</th>
+                          </tr>
+                          <tr>
+                              <th> >*a</th>
+                              <td>b</td>
+                              <td>X</td>
+                          </tr>
+                          <tr>
+                              <th>&emsp;b</th>
+                              <td>X</td>
+                              <td>ac</td>
+                          </tr>
+                          <tr>
+                              <th>*ac</th>
+                              <td>b</td>
+                              <td>a</td>
+                          </tr>
+                      </table>
+                  </th>
+              </tr>
+
+          </table>
+          <a href="#endofpage"><button onclick="nextImg(i++);">Next Step</button></a>
+          
+          <button onclick="reset()">Reset</button>
+      </div>
+
+      <div class="row" style="width: max-content;">
+          <div class="column" style="width: max-content;">
+            <img src="nfa-dfa-transition/NFA-transition.png" alt="NFA Transition" height="200" width="200">
+          </div>
+          <div id="stepImg" class="column">
+            <img>
+          </div>
+        </div>
+      
+      
+
+
+
+     
+  </center>
+
+  <script>
+      var i = 0;
+      var imgList = ["ex01-step01.png", "ex01-step02.png", "ex01-step03.png", "ex01-step04.png"];
+      function nextImg(i) {
+          if (i < imgList.length)
+              document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[i] + '" height="200" width="200">'
+      }
+  
+      function reset() {
+          i = 0;
+          document.getElementById("stepImg").innerHTML = "";
+      }
+      </script>
+
+</body>
+
+</html>
