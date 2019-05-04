@@ -264,17 +264,21 @@ select#soflow-color {
       <i class="fa fa-home w3-xxlarge"></i>
       <p>HOME</p>
     </a>
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="#fafa" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-user w3-xxlarge"></i>
-      <p>ABOUT</p>
+      <p>Finite Automata(FA)</p>
     </a>
-    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="#dfadfa" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-eye w3-xxlarge"></i>
-      <p>PHOTOS</p>
+      <p>DFA</p>
     </a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="#nafnfa" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-envelope w3-xxlarge"></i>
-      <p>CONTACT</p>
+      <p>NFA</p>
+    </a>
+     <a href="#simulation" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fa fa-envelope w3-xxlarge"></i>
+      <p>Examples</p>
     </a>
   </nav>
 
@@ -282,9 +286,10 @@ select#soflow-color {
   <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
       <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-      <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-      <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+      <a href="#fafa" class="w3-bar-item w3-button" style="width:25% !important">Finite Automata(FA)</a>
+      <a href="#dfadfa" class="w3-bar-item w3-button" style="width:25% !important">DFA</a>
+      <a href="#nfanfa" class="w3-bar-item w3-button" style="width:25% !important">NFA</a>
+      <a href="#simulation" class="w3-bar-item w3-button" style="width:25% !important">Examples</a>
     </div>
   </div>
 
@@ -298,7 +303,7 @@ select#soflow-color {
 
     <!-- About Section -->
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="FA">
-      <h2 class="w3-text-light-grey">Finite Automata (FA)</h2>
+      <h2 id="fafa" class="w3-text-light-grey">Finite Automata (FA)</h2>
       <hr style="width:200px" class="w3-opacity">
       <p>Finite Automata(FA) is the simplest machine to recognize patterns.
         <p>A finite automata consist of the following:</p>
@@ -314,7 +319,7 @@ select#soflow-color {
       </p>
     </div>
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="DFA">
-      <h2 class="w3-text-light-grey">Deterministic Finite Automata (DFA)</h2>
+      <h2 id="dfadfa" class="w3-text-light-grey">Deterministic Finite Automata (DFA)</h2>
       <hr style="width:200px" class="w3-opacity">
       <p>In a DFA, for a particular input character, the machine goes to one state only.
         A transition function is defined on every state for every input symbol.
@@ -337,7 +342,7 @@ select#soflow-color {
 
 
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="NFA">
-      <h2 class="w3-text-light-grey">Nondeterministic Finite Automata (NFA)</h2>
+      <h2 id="nfanfa" class="w3-text-light-grey">Nondeterministic Finite Automata (NFA)</h2>
       <hr style="width:200px" class="w3-opacity">
       <p>NFA is similar to DFA except following additional features:
         <p>1. Null (or ε) move is allowed i.e., it can move forward without reading symbols.</p>
@@ -356,7 +361,7 @@ select#soflow-color {
   
   <center>
       <h2>NFA to DFA Conversion</h2>
-      <div class="styled-select blue semi-square">
+      <div id="simulation" class="styled-select blue semi-square">
           <select>
             <option style="color: #000">Example 1</option>
             <option style="color: #000">Example 2</option>
