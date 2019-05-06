@@ -438,7 +438,14 @@
     }
 
     function back() {
-
+       if (s == 1) {
+        if (--i > imgList[s - 1].length)
+          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s-1][i] + '" height="200" width="200">'
+        }
+       else {
+        if (--j > imgList[s - 1].length)
+          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s-1][j] + '" height="200" width="200">'
+        }
 
     }
   </script>
