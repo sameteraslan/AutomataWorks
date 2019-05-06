@@ -422,13 +422,20 @@
                   ["ex02-step01.png", "ex02-step02.png", "ex02-step03.png", "ex02-step04.png"]];
     function nextImg() {
       if (s == 1) {
-        if (++i < imgList[s - 1].length)
+        if (i < imgList[s - 1].length) {
+          i++;
           document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s-1][i] + '" height="200" width="200">'
+  
         }
+       }
       else {
-        if (++j < imgList[s - 1].length)
+        if (j < imgList[s - 1].length) {
+          j++;
           document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s-1][j] + '" height="200" width="200">'
+    
         }
+          
+      }
       }
 
     function reset() {
@@ -439,13 +446,17 @@
 
     function back() {
        if (s == 1) {
-        if (--i > 0)
+        if (i > 0) {  
+          i--;
           document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s-1][i] + '" height="200" width="200">'
+          }
         }
        else {
-        if (--j > 0)
+        if (j > 0) {
+          j--;
           document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s-1][j] + '" height="200" width="200">'
         }
+      }
 
     }
   </script>
