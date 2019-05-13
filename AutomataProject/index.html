@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="icon.png">
 <style>
+  .footer {
+   
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: gray;
+   color: white;
+   text-align: center;
+  }
   .custom-select {
     position: relative;
     font-family: Arial;
@@ -288,10 +297,9 @@
     clear: both;
     display: table;
   }
-
 </style>
 
-<body class="w3-black" >
+<body class="w3-black">
   <nav>
 
     <label for="drop" class="toggle">Menu</label>
@@ -318,19 +326,19 @@
       <h2 id="fafa" class="w3-text-light-grey">Finite Automata (FA)</h2>
       <hr style="width:200px" class="w3-opacity">
       <p>Finite Automata(FA) is the simplest machine to recognize patterns.</p>
-        <p>A finite automata consist of the following:</p>
-        <fieldset style="max-width:max-content;">
-            
-          <p>{ Q, ∑, q, F, δ }</p>
-          <p>Q : Finite set of states.</p>
-          <p>∑ : set of Input Symbols.</p>
-          <p>q : Initial state.</p>
-          <p>F : set of Final States.</p>
-          <p>δ : Transition Function.</p>
-        
-        </fieldset>
+      <p>A finite automata consist of the following:</p>
+      <fieldset style="max-width:max-content;">
 
-      
+        <p>{ Q, ∑, q, F, δ }</p>
+        <p>Q : Finite set of states.</p>
+        <p>∑ : set of Input Symbols.</p>
+        <p>q : Initial state.</p>
+        <p>F : set of Final States.</p>
+        <p>δ : Transition Function.</p>
+
+      </fieldset>
+
+
     </div>
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" style="padding:20px;" id="DFA">
       <h2 id="dfadfa" class="w3-text-light-grey">Deterministic Finite Automata (DFA)</h2>
@@ -340,7 +348,8 @@
         Also in DFA null (or ε) move is not allowed, i.e.,
         DFA cannot change state without any input character.
         <p>For example, below DFA with ∑ = {0, 1} accepts all strings ending with 0.</p>
-        <img src="images/Finite_automata_introduction_1.jpg" alt="Introduction DFA-1">
+        <!––  Reference: https://www.geeksforgeeks.org/wp-content/uploads/Finite_automata_introduction_1.jpg ––>
+        <img src="images/Finite_automata_introduction_1.jpg" alt="Introduction DFA-1" style="max-width:359px;width: 100%;">
         <p>DFA consists of 5 tuples {Q, ∑, q, F, δ}.</p>
         <fieldset style="max-width:max-content;">
           <p>Q : set of all states.</p>
@@ -369,6 +378,16 @@
         <p>δ: Q X (∑ U ϵ ) --> 2 ^ Q.</p>
       </p>
     </div>
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" style="padding:20px;" id="NFA">
+      <h2 id="nfatodfa" class="w3-text-light-grey">NFA to DFA Conversion Steps</h2>
+      <hr style="width:200px" class="w3-opacity">
+      <p>
+        <p>1. Make a state table for given NFA</p>
+        <p>2. In DFA state table, initial state is same with NFA.</p>
+        <p>3. Determine all state combinations in Delta (δ = (Q X ∑)).</p>
+      </p>
+    </div>
   </div>
 
 
@@ -382,85 +401,119 @@
       </select>
     </div>
 
-   
+
     <br>
-    <div id = "tablolar">
-        <table><tr><th><table><tr><th>ẟ</th><th>0</th><th>1</th></tr><tr><th> >*a</th><td>b</td><td>X</td></tr><tr><th>&emsp;b</th><td>X</td><td>{a,c}</td></tr><tr><th> c</th><td>X</td><td>a</td></tr></table></th><th>&emsp;&emsp;&emsp;</th><th><table><tr><th>ẟ^</th><th>0</th><th>1</th> </tr><tr><th> >*a</th> <td>b</td><td>X</td></tr><tr><th>&emsp;b</th><td>X</td><td>ac</td></tr><tr><th>*ac</th><td>b</td><td>a</td></tr></table></th></tr></table>
+    <div id="tablolar">
+      <img src="images/Example01-table.png" alt="Example 1">
     </div>
-<a href="#endofpage"><button onclick="nextImg();">Next Step</button></a>
-<button onclick="back()">Back</button>
-    <button onclick="reset()">Reset</button>
+    <div id = "buttons">
+      <a href="#endofpage"><button onclick="nextImg();">Next Step</button></a>
+      <button onclick="back()">Back</button>
+      <button onclick="reset()">Reset</button>
+    </div>
     
+
     <div class="row" style="width: max-content;">
-      <div class="column" style="width: max-content;" id ="firstImage">
-        <img src="nfa-dfa-transition/NFA-transition.png" alt="NFA Transition" height="200" width="200">
+      <div class="column" style="width: max-content;" id="firstImage">
+        <img src="nfa-dfa-transition/NFA-transition.png" alt="NFA Transition" width="%100" style="max-width: 200px;">
       </div>
       <div id="stepImg" class="column">
         <img>
       </div>
     </div>
-  </center>
+
+   
+  </center> 
+  
+ 
 
   <script>
     var e;
     var s = 1;
     function showTable() {
-      i = 0;
-      j = 0;
+      i = -1;
+      j = -1;
+      document.getElementById("stepImg").innerHTML = '';
       e = document.getElementById('selection');
       s = e.options[e.selectedIndex].value;
       if (s == 1) {
-        document.getElementById('tablolar').innerHTML = '<table><tr><th><table><tr><th>ẟ</th><th>0</th><th>1</th></tr><tr><th> >*a</th><td>b</td><td>X</td></tr><tr><th>&emsp;b</th><td>X</td><td>{a,c}</td></tr><tr><th> c</th><td>X</td><td>a</td></tr></table></th><th>&emsp;&emsp;&emsp;</th><th><table><tr><th>ẟ^</th><th>0</th><th>1</th> </tr><tr><th> >*a</th> <td>b</td><td>X</td></tr><tr><th>&emsp;b</th><td>X</td><td>ac</td></tr><tr><th>*ac</th><td>b</td><td>a</td></tr></table></th></tr></table>'
+        document.getElementById('tablolar').innerHTML = '<img src="images/Example01-table.png" alt="Example 1">'
         document.getElementById('firstImage').innerHTML = '<img src="nfa-dfa-transition/NFA-transition.png" alt="NFA Transition" height="200" width="200">';
       } else {
-        document.getElementById('tablolar').innerHTML = '<table><tr><th><table><tr><th>ẟ</th><th>0</th><th>1</th></tr><tr><th> >a</th><td>X</td><td>b</td></tr><tr><th>&emsp;b</th><td>b</td><td>c</td></tr><tr><th>*c</th><td>X</td><td>{a,c}</td></tr></table></th><th>&emsp;&emsp;&emsp;</th><th><table><tr><th>ẟ^</th><th>0</th><th>1</th> </tr><tr><th> >a</th> <td>X</td><td>b</td></tr><tr><th>&emsp;b</th><td>b</td><td>c</td></tr><tr><th>&emsp;*c</th><td>X</td><td>{a,c}</td></tr><tr><th>*ac</th><td>X</td><td>{a,b,c}</td></tr><tr><th>*abc</th><td>b</td><td>abc</td></tr></table></th></tr></table>'
+        document.getElementById('tablolar').innerHTML = '<img src="images/Example02-table.png" alt="Example 2">'
         document.getElementById('firstImage').innerHTML = '<img src="nfa-dfa-transition/ex02/ex02.png" alt="NFA Transition" height="200" width="200">';
       }
     }
-    var i = 0, j = 0;
-    var imgList = [["ex01-step01.png", "ex01-step02.png", "ex01-step03.png", "ex01-step04.png"], 
-                  ["ex02-step01.png", "ex02-step02.png", "ex02-step03.png", "ex02-step04.png"]];
+    var i = -1, j = -1;
+    var imgList = [["ex01-step01.png", "ex01-step02.png", "ex01-step03.png", "ex01-step04.png"],
+    ["ex02-step01.png", "ex02-step02.png", "ex02-step03.png", "ex02-step04.png"]];
     function nextImg() {
       if (s == 1) {
-        if (i < imgList[s - 1].length) {
+        if (i < imgList[s - 1].length - 1) {
           i++;
-          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s-1][i] + '" height="200" width="200">'
-  
+          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s - 1][i] + '" height="200" width="200">'
         }
-       }
-      else {
-        if (j < imgList[s - 1].length) {
-          j++;
-          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s-1][j] + '" height="200" width="200">'
-    
-        }
-          
+        checkNextButton(i);
       }
+      else {
+        if (j < imgList[s - 1].length - 1) {
+          j++;
+          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s - 1][j] + '" height="200" width="200">'
+        }
+        checkNextButton(j);
       }
 
+     
+    }
+
     function reset() {
-      i = 0;
-      j = 0;
+      i = -1;
+      j = -1;
       document.getElementById("stepImg").innerHTML = "";
+      document.getElementById('buttons').innerHTML = '<a href="#endofpage"><button onclick="nextImg();">Next Step</button></a><button onclick="back()">Back</button><button onclick="reset()">Reset</button>' 
     }
 
     function back() {
-       if (s == 1) {
-        if (i > 0) {  
+      if (s == 1) {
+        if (i > 0) {
           i--;
-          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s-1][i] + '" height="200" width="200">'
-          }
+          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/" + imgList[s - 1][i] + '" height="200" width="200">'
         }
-       else {
+        checkBackButton(i);
+      }
+      else {
         if (j > 0) {
           j--;
-          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s-1][j] + '" height="200" width="200">'
+          document.getElementById("stepImg").innerHTML = '<img id="endofpage" src="' + "nfa-dfa-transition/ex02/" + imgList[s - 1][j] + '" height="200" width="200">'
+
         }
+        checkBackButton(j);
       }
+          }
+
+    function checkNextButton(input) {
+      if (input >= imgList[s - 1].length - 1) {
+        document.getElementById('buttons').innerHTML = '<button onclick="back()">Back</button><button onclick="reset()">Reset</button>'
+      } else
+        document.getElementById('buttons').innerHTML = '<a href="#endofpage"><button onclick="nextImg();">Next Step</button></a><button onclick="back()">Back</button><button onclick="reset()">Reset</button>' 
+    }
+
+    function checkBackButton(input) {
+      if (input <= 0) {
+        document.getElementById('buttons').innerHTML = '<a href="#endofpage"><button onclick="nextImg();">Next Step</button></a><button onclick="reset()">Reset</button>'
+      } else
+        document.getElementById('buttons').innerHTML = '<a href="#endofpage"><button onclick="nextImg();">Next Step</button></a><button onclick="back()">Back</button><button onclick="reset()">Reset</button>' 
 
     }
   </script>
 
+<div class="footer">
+    <p>References:</p>
+    <a href="https://www.geeksforgeeks.org/theory-of-computation-conversion-from-nfa-to-dfa/">Geeksforgeeks</a><br>
+    <a href="https://www.w3schools.com/w3css/w3css_templates.asp">W3schools</a><br>
+    <a href="https://www.geeksforgeeks.org/theory-of-computation-conversion-from-nfa-to-dfa/">Geeksforgeeks</a>
+
+</div>
 </body>
 
 </html>
