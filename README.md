@@ -1,16 +1,16 @@
-1. [CW1 - DFA](https://sameteraslan.github.io/AutomataWorks/CW1/CW1)
+1. [CW1 - DFA](https://sameteraslan.github.io/AutomataWorks/CW01/CW1)
 
-2. [CW2 - NFA](https://sameteraslan.github.io/AutomataWorks/CW2/CW2-NFA1)
+2. [CW2 - NFA](https://sameteraslan.github.io/AutomataWorks/CW02/CW2-NFA1)
 
-3. [CW3 - RegExp](https://sameteraslan.github.io/AutomataWorks/CW3/CW3)
+3. [CW3 - RegExp](https://sameteraslan.github.io/AutomataWorks/CW03/CW3)
 
-4. [CW4 - Palindrome](https://sameteraslan.github.io/AutomataWorks/CW4/CW4)
+4. [CW4 - Palindrome](https://sameteraslan.github.io/AutomataWorks/CW04/CW4)
 
-5. [CW5 - Expressions](https://sameteraslan.github.io/AutomataWorks/CW5/CW5)
+5. [CW5 - Expressions](https://sameteraslan.github.io/AutomataWorks/CW05/CW5)
 
-6. [CW6 - PDA](https://sameteraslan.github.io/AutomataWorks/CW6/CW6)
+6. [CW6 - PDA](https://sameteraslan.github.io/AutomataWorks/CW06/CW6)
 
-7. [CW7 - MicroJ3](https://sameteraslan.github.io/AutomataWorks/CW7/microJ3)
+7. [CW7 - MicroJ3](https://sameteraslan.github.io/AutomataWorks/CW07/microJ3)
 
 8. [CW10 - Graph Theory](https://sameteraslan.github.io/AutomataWorks/CW10/CW10.png)
 
