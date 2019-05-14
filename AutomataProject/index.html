@@ -401,6 +401,8 @@
       </select>
     </div>
 
+  
+
 
     <br>
     <div id="tablolar">
@@ -433,6 +435,7 @@
     function showTable() {
       i = -1;
       j = -1;
+      document.getElementById('buttons').innerHTML = '<a href="#endofpage"><button onclick="nextImg();">Next Step</button></a><button onclick="back()">Back</button><button onclick="reset()">Reset</button>' 
       document.getElementById("stepImg").innerHTML = '';
       e = document.getElementById('selection');
       s = e.options[e.selectedIndex].value;
