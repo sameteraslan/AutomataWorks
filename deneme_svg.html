@@ -1,0 +1,165 @@
+<style>
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.graph .labels.x-labels {
+  text-anchor: middle;
+}
+
+.graph .labels.y-labels {
+  text-anchor: end;
+}
+
+.graph {
+  height: 500px;
+  width: 800px;
+}
+
+.graph .grid {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+}
+
+.labels {
+  font-size: 13px;
+}
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black;
+}
+
+.data {
+  fill: red;
+  stroke-width: 1; 
+}
+
+</style>
+
+<svg version="1.2" class="graph" aria-labelledby="title" role="img">
+  <title id="title">A line chart showing some information</title>
+<g class="grid x-grid" id="y_line">
+  <line x1="100" x2="100" y1="100" y2="400"></line>
+</g>
+<g class="grid y-grid" id="x_line">
+  <line id="x_line_coordinate" x1="100" x2="600" y1="400" y2="400"></line>
+</g>
+  <g class="labels x-labels" id="x_axis_values">
+  
+  <text x="100" y="420">2008</text>
+  <text x="246" y="420">2009</text>
+  <text x="392" y="420">2010</text>
+  <text x="538" y="420">2011</text>
+  <text x="684" y="420">2012</text>
+  <text x="400" y="440" class="label-title">Year</text>
+</g>
+<g class="labels y-labels" id="y_axis_values">
+  <text x="80" y="15">45</text>
+  <text x="80" y="131">40</text>
+  <text x="80" y="248">35</text>
+  <text x="80" y="373">30</text>
+  <text x="50" y="200" class="label-title">Price</text>
+</g>
+<g class="data" id="data_values" data-setname="Our first data set">
+  <circle cx="90" cy="192" data-value="7.2" r="4"></circle>
+  <circle cx="240" cy="141" data-value="8.1" r="4"></circle>
+  <circle cx="388" cy="179" data-value="15" r="4"></circle>
+  <circle cx="531" cy="200" data-value="6.8" r="4"></circle>
+  <circle cx="677" cy="104" data-value="6.7" r="4"></circle>
+</g>
+</svg>
+
+<script>
+  var x_values = [1, 2, 3, 4, 5, 6]
+  var y_values = [55, 50, 45, 40, 35]
+  var data = [[1, 38], [2, 39], [3, 40], [4, 41], [5, 42], [6, 50]]
+
+  function calculate_x_values() {
+    var ilk_x = data[0][0];
+    var son_x = data[data.length - 1][0];
+    x_values = []
+    while (ilk_x++ < son_x) {
+      x_values.push(ilk_x);
+    }
+    x_ekseni_degerlerini_ciz(x_values);
+  }
+
+  function data_shift(data) {
+    while (data.length > 20) {
+      data.shift();
+    }
+  }
+
+  function data_ciz(data) {
+    data_shift(data);
+    calculate_x_values();
+
+    var y_witdh = Math.abs(Number(document.getElementById('y_line_coordinate').y1.baseVal.value) - Number(document.getElementById('y_line_coordinate').y2.baseVal.value));
+    var x_width = Math.abs(Number(document.getElementById('x_line_coordinate').x1.baseVal.value) - Number(document.getElementById('x_line_coordinate').x2.baseVal.value));
+    var y_value_difference = Math.abs(y_values[0] - y_values[y_values.length - 1]) //15 derece
+
+    document.getElementById("data_values").innerHTML = "";
+    var x_element_distance = x_width / (x_values.length);
+    var x_coordinate = Number(document.getElementById('x_line_coordinate').x1.baseVal.value);
+    var y_base = y_values[y_values.length - 1]
+    for (let i = 0; i < data.length; i++) {
+      var y = - (Math.abs(y_base - data[i][1]) / y_value_difference) * y_witdh + Number(document.getElementById('y_line_coordinate').y2.baseVal.value) 
+      console.log("y_base: " + y_base + "  data[i][1]: " + data[i][1] + "  y_difference: " + y_value_difference)
+      document.getElementById("data_values").innerHTML += '<circle cx="' + x_coordinate + '" cy="' + y + '" r="4"></circle>'
+      x_coordinate += x_element_distance;
+    }
+  }
+
+  function y_ekseni_degerlerini_ciz(y_values) {
+    var y_witdh = Math.abs(Number(document.getElementById('y_line_coordinate').y1.baseVal.value) - Number(document.getElementById('y_line_coordinate').y2.baseVal.value));
+    var y_element_distance = y_witdh / (y_values.length - 1);
+    document.getElementById('y_axis_values').innerHTML = '';
+    var x_coordinate = Number(document.getElementById('y_line_coordinate').x1.baseVal.value) - 10;
+    var y_coordinate = Number(document.getElementById('y_line_coordinate').y1.baseVal.value);
+    for (var i = 1; i <= y_values.length; i++) {
+      document.getElementById('y_axis_values').innerHTML += '<text x="' + x_coordinate + '" y="' + y_coordinate + '">' + y_values[i-1] + '</text>';
+      y_coordinate += y_element_distance;
+    }  
+  }
+
+  function x_ekseni_degerlerini_ciz(x_values) {
+    var x_width = Math.abs(Number(document.getElementById('x_line_coordinate').x1.baseVal.value) - Number(document.getElementById('x_line_coordinate').x2.baseVal.value));
+    var x_element_distance = x_width / (x_values.length - 1);
+    document.getElementById('x_axis_values').innerHTML = '';
+    var y_coordinate = Number(document.getElementById('x_line_coordinate').y2.baseVal.value) + 20;
+    var x_coordinate = Number(document.getElementById('x_line_coordinate').x1.baseVal.value);
+    for (var i = 1; i <= x_values.length; i++) {
+      document.getElementById('x_axis_values').innerHTML += '<text x="' + x_coordinate + '" y="' + y_coordinate + '">' + x_values[i-1] + '</text>';
+      x_coordinate += x_element_distance;
+    }
+  }
+
+  function eksenleri_ciz(x1, y1, x2, y2) {
+    x_eksenini_ciz(x1, x2, y2)
+    y_eksenini_ciz(x1, y1, y2)
+  }
+
+  function y_eksenini_ciz(x, y1, y2) {
+    document.getElementById('y_line').innerHTML = '<line id="y_line_coordinate" x1="' + x + '" x2="' + x + '" y1="' + y1 + '" y2="' + y2 + '"></line>'
+  }
+
+  function x_eksenini_ciz(x1, x2, y) {
+    document.getElementById('x_line').innerHTML = '<line id="x_line_coordinate" x1="' + x1 +'" x2="' + x2 + '" y1="' + y +'" y2="' + y + '"></line>'
+  }
+
+  eksenleri_ciz(200, 200, 600, 400);
+  x_ekseni_degerlerini_ciz(x_values);
+  y_ekseni_degerlerini_ciz(y_values);
+  data_ciz(data);
+  var temp = [7, 35];
+  
+  setInterval(function() {
+    data.push([temp[0]++, Math.floor(Math.random() * 15 + 35)]);
+    data_ciz(data);
+  }, 200);
+
+</script>
